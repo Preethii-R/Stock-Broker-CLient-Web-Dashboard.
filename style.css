@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.head {
+    width: 50%;
+    height: 70px;
+    font-size: 1.5rem;
+    justify-items: center;
+    justify-self: center;
+    margin-top: 80px;
+    background: #020617;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.box {
+  width: 400px;
+  margin: 120px auto;
+  padding: 32px;
+  background: #020617;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+button {
+  background: #22c55e;
+  color: #020617;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link {
+  margin-top: 14px;
+  text-align: center;
+  color: #60a5fa;
+  cursor: pointer;
+}
+
+.dashboard {
+  display: none;
+  width: 90%;
+  margin: 40px auto;
+}
+
+.subscription {
+  margin-bottom: 25px;
+}
+
+.subscription input[type="checkbox"] {
+  transform: scale(1.4);
+  margin-right: 6px;
+  accent-color: #22c55e;
+  cursor: pointer;
+}
+
+.stocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.stock {
+  padding: 24px;
+  border-radius: 16px;
+  background: #020617;
+  border: 1px solid #1e293b;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  color: #22c55e;
+}
