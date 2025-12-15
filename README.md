@@ -3,6 +3,8 @@
 A real-time stock broker client web dashboard that allows users to register, log in, subscribe to stocks, and view live price updates without refreshing the page.
 The application supports multiple users simultaneously with independent subscriptions and asynchronous updates.
 
+______________________________________________________________________________________________________________________________________________________________________________________________________________
+
 **Features**
 
 1. User registration and login using email & password
@@ -12,6 +14,8 @@ The application supports multiple users simultaneously with independent subscrip
 5. Subscription data is persisted in SQL database
 6. Supports multiple users at the same time
 7. Clean, modern dashboard UI
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________
 
    
 
@@ -31,9 +35,7 @@ The application supports multiple users simultaneously with independent subscrip
 -Socket.IO
 -MySQL
 
-
-
- **Database Schema (MySQL)**
+*3. Database Schema (MySQL)*
 
 *user table*
 
@@ -65,6 +67,8 @@ CREATE TABLE subscriptions (
   
 );
 
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
 **Installation & Setup**
@@ -107,6 +111,9 @@ http://localhost:3000
 Open index.html using VS Code Live Server
 OR serve the public folder via Express
 
+______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
 **How It Works**
 
 1. Users register or log in using email & password
@@ -115,6 +122,9 @@ OR serve the public folder via Express
 4. Users can subscribe/unsubscribe from stocks
 5. Subscriptions are saved in MySQL and restored after login
 6. Each dashboard updates in real time without refresh
+   
+______________________________________________________________________________________________________________________________________________________________________________________________________________
+
 
 **Future Improvements**
 
