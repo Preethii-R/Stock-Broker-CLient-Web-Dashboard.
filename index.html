@@ -7,39 +7,39 @@
 </head>
 
 <body>
-    <div class="head"><h1>STOCK WEB DASHBOARD</h1></div>
+  <div class="head"><h1>STOCK WEB DASHBOARD</h1></div>
 
-<div class="box" id="loginBox">
-  <h2>Login</h2>
-  <input id="loginEmail" placeholder="Email">
-  <input id="loginPassword" type="password" placeholder="Password">
-  <button onclick="login()">Login</button>
-  <div class="link" onclick="showRegister()">New user? Register</div>
-</div>
-
-<div class="box" id="registerBox" style="display:none">
-  <h2>Register</h2>
-  <input id="regEmail" placeholder="Email">
-  <input id="regPassword" type="password" placeholder="Password">
-  <button onclick="register()">Register</button>
-</div>
-
-<div class="dashboard" id="dashboard">
-  <h2 id="user"></h2>
-
-  <div class="subscription">
-    <label><input type="checkbox" value="GOOG"> GOOG</label>
-    <label><input type="checkbox" value="TSLA"> TSLA</label>
-    <label><input type="checkbox" value="AMZN"> AMZN</label>
-    <label><input type="checkbox" value="META"> META</label>
-    <label><input type="checkbox" value="NVDA"> NVDA</label>
-    <br><br>
-    <button onclick="subscribeStocks()">Save Subscription</button>
+  <div class="box" id="loginBox">
+    <h2>Login</h2>
+    <input id="loginEmail" placeholder="Email">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <div class="link" onclick="showRegister()">New user? Register</div>
   </div>
 
-  <div class="stocks" id="stocks"></div>
-</div>
+  <div class="box" id="registerBox" style="display:none">
+    <h2>Register</h2>
+    <input id="regEmail" placeholder="Email">
+    <input id="regPassword" type="password" placeholder="Password">
+    <button onclick="register()">Register</button>
+  </div>
 
-<script src="script.js"></script>
+  <div class="dashboard" id="dashboard">
+    <h2 id="user"></h2>
+
+    <div class="subscription">
+      <label><input type="checkbox" value="GOOG"> GOOG</label>
+      <label><input type="checkbox" value="TSLA"> TSLA</label>
+      <label><input type="checkbox" value="AMZN"> AMZN</label>
+      <label><input type="checkbox" value="META"> META</label>
+      <label><input type="checkbox" value="NVDA"> NVDA</label>
+      <br><br>
+      <button onclick="subscribeStocks()">Save Subscription</button>
+    </div>
+
+    <div class="stocks" id="stocks"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
