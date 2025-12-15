@@ -16,16 +16,18 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root123", // change if needed
+  password: "root123", 
   database: "stock_dashboard"
 });
 
-db.connect(() => console.log("✅ MySQL connected"));
+db.connect(err => {
+  if (err) throw err;
+  console.log(" MySQL connected");
+});
 
-/* ---------- Stocks ---------- */
+/* Stocks */
 const STOCKS = ["GOOG", "TSLA", "AMZN", "META", "NVDA"];
 let prices = {};
-
 STOCKS.forEach(s => prices[s] = Math.floor(Math.random() * 1000) + 500);
 
 setInterval(() => {
@@ -36,7 +38,7 @@ setInterval(() => {
   io.emit("prices", prices);
 }, 1000);
 
-/* ---------- Register ---------- */
+/*  Register  */
 app.post("/register", async (req, res) => {
   const { email, password } = req.body;
   const hash = await bcrypt.hash(password, 10);
@@ -51,12 +53,12 @@ app.post("/register", async (req, res) => {
   );
 });
 
-/* ---------- Login ---------- */
+/* Login  */
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
   db.query("SELECT * FROM users WHERE email=?", [email], async (err, rows) => {
-    if (!rows.length) return res.json({ success: false });
+    if (err || rows.length === 0) return res.json({ success: false });
 
     const match = await bcrypt.compare(password, rows[0].password);
     if (!match) return res.json({ success: false });
@@ -76,7 +78,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-/* ---------- Save Subscriptions ---------- */
+/*  Subscriptions */
 app.post("/subscribe", (req, res) => {
   const { userId, stocks } = req.body;
 
@@ -91,7 +93,7 @@ app.post("/subscribe", (req, res) => {
   });
 });
 
-/* ---------- Socket ---------- */
+/* - Socket  */
 io.on("connection", socket => {
   socket.emit("prices", prices);
 });
