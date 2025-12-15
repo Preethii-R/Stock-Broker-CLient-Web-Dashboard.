@@ -24,15 +24,21 @@ ________________________________________________________________________________
 *1. Frontend*
 
 -HTML5 
+
 -CSS3
--JavaScript  
+
+-JavaScript 
+
 -Socket.IO Client
 
 *2. Backend*
 
 -Node.js
+
 -Express.js
+
 -Socket.IO
+
 -MySQL
 
 *3. Database Schema (MySQL)*
