@@ -9,7 +9,7 @@ function showRegister() {
   registerBox.style.display = "block";
 }
 
-/* ---------- Register ---------- */
+/*  Register  */
 function register() {
   fetch("http://localhost:3000/register", {
     method: "POST",
@@ -33,7 +33,7 @@ function register() {
   });
 }
 
-/* ---------- Login ---------- */
+/*  Login  */
 function login() {
   fetch("http://localhost:3000/login", {
     method: "POST",
@@ -63,7 +63,7 @@ function login() {
   });
 }
 
-/* ----------  Subscriptions ---------- */
+/* Subscriptions  */
 function subscribeStocks() {
   subscribedStocks = [
     ...document.querySelectorAll(".subscription input[type=checkbox]:checked")
@@ -76,7 +76,7 @@ function subscribeStocks() {
   });
 }
 
-/* ---------- Live Prices ---------- */
+/*  Live Prices */
 socket.on("prices", prices => {
   stocks.innerHTML = "";
   subscribedStocks.forEach(stock => {
@@ -88,3 +88,4 @@ socket.on("prices", prices => {
     `;
   });
 });
+
