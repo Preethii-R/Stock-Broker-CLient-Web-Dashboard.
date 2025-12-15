@@ -1,142 +1,164 @@
-**STOCK BROKER CLIENT WEB DASHBOARD**
+# 📈 Stock Broker Client Web Dashboard
 
-A real-time stock broker client web dashboard that allows users to register, log in, subscribe to stocks, and view live price updates without refreshing the page.
-The application supports multiple users simultaneously with independent subscriptions and asynchronous updates.
+A real-time **Stock Broker Client Web Dashboard** built using **Node.js, Express, Socket.IO, MySQL, HTML, CSS, and JavaScript**.  
+The application allows multiple users to **register, log in, subscribe to stocks**, and **view live-updating stock prices** without refreshing the page.
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________
+---
 
-**Features**
+## ✨ Features
 
-1. User registration and login using email & password
-2. Secure authentication with hashed passwords
-3. Subscribe to supported stock ticker symbols
-4. Each user sees only their subscribed stocks
-5. Subscription data is persisted in SQL database
-6. Supports multiple users at the same time
-7. Clean, modern dashboard UI
+- **User Authentication**
+  - Register using email and password
+  - Login for existing users
+  - Secure password hashing using *bcrypt*
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________
+- **Stock Subscription**
+  - Subscribe to supported stocks using ticker codes  
+  - Supported stocks:
+    - **GOOG**
+    - **TSLA**
+    - **AMZN**
+    - **META**
+    - **NVDA**
 
-   
+- **Real-Time Price Updates**
+  - Stock prices update **every second**
+  - No page refresh required
+  - Powered by **Socket.IO**
 
-**Tech Stack**
+- **Multi-User Support**
+  - Multiple users can log in simultaneously
+  - Each user sees only their subscribed stocks
+  - Dashboards update asynchronously
 
-*1. Frontend*
+- **Persistent Subscriptions**
+  - Stock subscriptions are stored in the database
+  - Subscriptions remain the same after logout and login
 
--HTML5 
+- **Professional UI**
+  - Dark-themed, modern dashboard design
+  - Centered stock cards with live price display
+  - Clean and minimal user experience
 
--CSS3
+---
 
--JavaScript 
+## 🛠 Tech Stack
 
--Socket.IO Client
+- **Frontend**
+  - HTML
+  - CSS
+  - JavaScript
 
-*2. Backend*
+- **Backend**
+  - Node.js
+  - Express.js
+  - Socket.IO
 
--Node.js
+- **Database**
+  - MySQL
 
--Express.js
+---
 
--Socket.IO
-
--MySQL
-
-*3. Database Schema (MySQL)*
-
-*user table*
-
-CREATE TABLE users (
-
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  
-  username VARCHAR(50) UNIQUE,
-  
-  email VARCHAR(100) UNIQUE,
-  
-  password VARCHAR(255),
-  
-  balance DECIMAL(10,2) DEFAULT 100000
-  
-);
-
- *subscriptions table*
- 
-CREATE TABLE subscriptions (
-
-  id INT AUTO_INCREMENT PRIMARY KEY,
-
-  user_id INT,
-  
-  stock_code VARCHAR(10),
-  
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-  
-);
+## 📂 Project Structure
+```
+Stock-Broker-Client-Web-Dashboard/
+│
+├── index.html        # Frontend UI
+├── style.css         # Styling
+├── script.js         # Frontend logic
+├── server.js         # Backend server
+├── package.json      # Project dependencies
+└── README.md         # Project documentation
+```
 
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________
 
+---
 
-**Installation & Setup**
+## 🗄 Database Schema
 
-1️ Clone the repository
+### **users**
+- `id` (INT, PRIMARY KEY)
+- `email` (VARCHAR, UNIQUE)
+- `password` (VARCHAR)
 
-git clone https://github.com/your-username/stock-dashboard.git
-cd stock-dashboard
+### **subscriptions**
+- `id` (INT, PRIMARY KEY)
+- `user_id` (INT, FOREIGN KEY)
+- `stock_code` (VARCHAR)
 
-2 Install dependencies
+---
 
+## 🚀 How to Run the Project
+
+### 1️⃣ Install Dependencies
+```
 npm install
 
-3 Setup MySQL Database
+2️⃣ Start MySQL Server
 
--Start MySQL server
--Create a database named stock_dashboard
--Run the SQL commands provided above to create tables
+- Create a database named stock_dashboard
 
-4️ Configure Database Credentials
+- Create users and subscriptions tables as per schema
 
-In server.js, update:
+3️⃣ Start Backend Server
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "your_mysql_password",
-  database: "stock_dashboard"
-});
+- node server.js
 
-5️ Start the Server
+- Server runs at:
 
-node server.js
-
-Server will run at:
 http://localhost:3000
 
-6️ Run the Frontend
+4️⃣ Open Frontend
 
-Open index.html using VS Code Live Server
-OR serve the public folder via Express
+- Open index.html in browser
+OR
+- Use VS Code Live Server
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________
+🔄 Stock Price Simulation
+
+- Stock prices are generated using a random number generator
+
+- Prices change every second
+
+This simulates real market behavior without using external APIs
+
+```
+
+🧪 Testing Multi-User Functionality
+
+- Open dashboard in two different browsers
+
+- Login with different users
+
+- Subscribe to different stocks
+
+- Observe live updates independently
+
+📌 Notes
+
+- No real stock market API is used
+
+- This project focuses on real-time communication and system design
+
+- Designed for academic submission and demonstrations
+
+📎 Future Enhancements
+
+- Logout functionality
+
+- Session-based authentication
+
+- Price trend indicators (up/down arrows)
+
+- Real stock market API integration
+
+- Role-based access (Admin / User)
+  
+
+👩‍💻 Author
+
+Preethi R
 
 
-**How It Works**
-
-1. Users register or log in using email & password
-2. Stock prices are generated randomly on the server every second
-3. Prices are broadcast to all connected clients
-4. Users can subscribe/unsubscribe from stocks
-5. Subscriptions are saved in MySQL and restored after login
-6. Each dashboard updates in real time without refresh
-   
-______________________________________________________________________________________________________________________________________________________________________________________________________________
-
-
-**Future Improvements**
-
-1. Logout & session management
-2. Price change indicators
-3. Historical price charts
-4. Role-based access (Admin / User)
-5. Real stock API integration
 
