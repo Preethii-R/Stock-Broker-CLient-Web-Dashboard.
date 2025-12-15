@@ -1,4 +1,4 @@
-**Stock Broker Client Web Dashboard**
+**STOCK BROKER CLIENT WEB DASHBOARD**
 
 A real-time stock broker client web dashboard that allows users to register, log in, subscribe to stocks, and view live price updates without refreshing the page.
 The application supports multiple users simultaneously with independent subscriptions and asynchronous updates.
@@ -6,36 +6,32 @@ The application supports multiple users simultaneously with independent subscrip
 **Features**
 
 1. User registration and login using email & password
-
 2. Secure authentication with hashed passwords
-
 3. Subscribe to supported stock ticker symbols
+4. Each user sees only their subscribed stocks
+5. Subscription data is persisted in SQL database
+6. Supports multiple users at the same time
+7. Clean, modern dashboard UI
 
-4. Live stock price updates using WebSockets (Socket.IO)
-
-5. Each user sees only their subscribed stocks
-
-6. Subscription data is persisted in SQL database
-
-7. Supports multiple users at the same time
-
-8. Clean, modern dashboard UI
+   
 
 **Tech Stack**
 
-*Frontend*
+*1. Frontend*
 
 -HTML5 
 -CSS3
 -JavaScript  
 -Socket.IO Client
 
-*Backend*
+*2. Backend*
 
 -Node.js
 -Express.js
 -Socket.IO
 -MySQL
+
+
 
  **Database Schema (MySQL)**
 
@@ -57,12 +53,17 @@ CREATE TABLE subscriptions (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+
+
 **Installation & Setup**
+
 1️ Clone the repository
+
 git clone https://github.com/your-username/stock-dashboard.git
 cd stock-dashboard
 
 2 Install dependencies
+
 npm install
 
 3 Setup MySQL Database
@@ -97,26 +98,17 @@ OR serve the public folder via Express
 **How It Works**
 
 1. Users register or log in using email & password
-
 2. Stock prices are generated randomly on the server every second
-
-3. Prices are broadcast to all connected clients using Socket.IO
-
+3. Prices are broadcast to all connected clients
 4. Users can subscribe/unsubscribe from stocks
-
 5. Subscriptions are saved in MySQL and restored after login
-
 6. Each dashboard updates in real time without refresh
 
 **Future Improvements**
 
 1. Logout & session management
-
 2. Price change indicators
-
 3. Historical price charts
-
 4. Role-based access (Admin / User)
-
 5. Real stock API integration
 
